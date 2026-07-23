@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <style>
+         body {
+            background-color: #0b0d2b; /* dark background */
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 0.15;
+            height: 100vh;
+        }
+        .credentials{
+            font-family: 'Times New Roman', Times, serif;
+            color: azure;
+            font-size: 16px;
+            
+        }
+        .head{
+            font-family: fantasy;
+            color: blueviolet;
+            text-align: center;
+            font-size: 48px;
+        }
+        .form-container {
+            background-color: #1a1c3b; /* box color */
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .forms{
+            border-radius: 5px;
+            width: 360px;
+            height: 20px;
+        }
+        .btn-submit{
+            width: 420px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: aquamarine;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        }
+        .btn-submit:hover {
+            /* transform: translateY(-1px); */
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+    <body>
+        <div class="form-container">
+            <p class="head">Vertex '26</p>
+            <h6>College Level Symposium-Sri Krishna College of Engineering and Technology</h6>
+            <br><br><br>
+            <p class="credentials" aria-required="true">Full Name:</p>
+            <br><input class="forms" type="text" placeholder="Enter your Name" required><br>
+            <p class="credentials">Email:</p>
+            <br><input class="forms" type="email" placeholder="Enter your MailID" required>
+            <p class="credentials">Contact:</p>
+            <br><input class="forms" type="number" placeholder="Enter your Phone No" width="180" height="20" required><br>
+            <p class="credentials">College or University:</p>
+            <br><input class="forms" type="text" placeholder="Enter College Name" required><br>
+            <p class="credentials">Department:</p>
+            <select required>
+                <option disabled selected>Select Department</option>
+                <option>Computer Science</option>
+                <option>Electronics and Communication</option>
+                <option>Electrical Engineering</option>
+                <option>Mechanical</option>
+                <option>Mechatronics</option>
+            </select><br><br>
+            <p class="credentials">Select events to participate:</p>
+            <input type="checkbox">Byte Craft(Codathon)<br>
+            <input type="checkbox">Innovatex (Paper Presentation)<br>
+            <input type="checkbox">Web Weaver (UI/UX)<br>
+            <input type="checkbox">Doodla (Art) 
+            <br><br><br>
+            <button type="submit" class="btn-submit">Confirm Registration</button>
+            
+        </div>
+    </body>
+</html>
