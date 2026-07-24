@@ -1,84 +1,232 @@
 <!DOCTYPE html>
-<html>
-    <style>
-         body {
-            background-color: #0b0d2b; /* dark background */
-            font-family: Arial, sans-serif;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 0.15;
-            height: 100vh;
-        }
-        .credentials{
-            font-family: 'Times New Roman', Times, serif;
-            color: azure;
-            font-size: 16px;
-            
-        }
-        .head{
-            font-family: fantasy;
-            color: blueviolet;
-            text-align: center;
-            font-size: 48px;
-        }
-        .form-container {
-            background-color: #1a1c3b; /* box color */
-            padding: 30px;
-            border-radius: 10px;
-            width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-        .forms{
-            border-radius: 5px;
-            width: 360px;
-            height: 20px;
-        }
-        .btn-submit{
-            width: 420px;
-            height: 40px;
-            border-radius: 10px;
-            background-color: aquamarine;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circuitrix '26 — Registration</title>
 
-        }
-        .btn-submit:hover {
-            /* transform: translateY(-1px); */
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-        }
-    </style>
-    <body>
-        <div class="form-container">
-            <p class="head">Vertex '26</p>
-            <h6>College Level Symposium-Sri Krishna College of Engineering and Technology</h6>
-            <br><br><br>
-            <p class="credentials" aria-required="true">Full Name:</p>
-            <br><input class="forms" type="text" placeholder="Enter your Name" required><br>
-            <p class="credentials">Email:</p>
-            <br><input class="forms" type="email" placeholder="Enter your MailID" required>
-            <p class="credentials">Contact:</p>
-            <br><input class="forms" type="number" placeholder="Enter your Phone No" width="180" height="20" required><br>
-            <p class="credentials">College or University:</p>
-            <br><input class="forms" type="text" placeholder="Enter College Name" required><br>
-            <p class="credentials">Department:</p>
-            <select required>
-                <option disabled selected>Select Department</option>
+<style>
+  :root{
+    --blue-deep:#0d2b4e;
+    --blue-line:#2f6fa8;
+    --paper:#eef4fa;
+    --ink:#0d2b4e;
+    --accent:#e8a33d;
+    --card:#ffffff;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    background:
+      linear-gradient(var(--paper), var(--paper)),
+      repeating-linear-gradient(0deg, rgba(47,111,168,0.12) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(47,111,168,0.12) 0 1px, transparent 1px 28px);
+    font-family:'Segoe UI', Arial, sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 16px;
+  }
+
+  .sheet{
+    background:var(--card);
+    width:460px;
+    max-width:100%;
+    border:2px solid var(--blue-deep);
+    box-shadow:8px 8px 0 rgba(13,43,78,0.12);
+    position:relative;
+  }
+
+  /* corner ticks, like a technical drawing */
+  .sheet::before, .sheet::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border:2px solid var(--accent);
+  }
+  .sheet::before{ top:-2px; left:-2px; border-right:none; border-bottom:none; }
+  .sheet::after{ bottom:-2px; right:-2px; border-left:none; border-top:none; }
+
+  .title-block{
+    background:var(--blue-deep);
+    color:#fff;
+    padding:22px 28px;
+  }
+
+  .eyebrow{
+    font-family:'Courier New', monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .title-block h1{
+    font-size:30px;
+    margin-top:6px;
+    letter-spacing:1px;
+  }
+
+  .title-block p{
+    font-size:12.5px;
+    margin-top:6px;
+    color:#c9dbee;
+  }
+
+  form{ padding:26px 28px 30px; }
+
+  .field{ margin-bottom:16px; }
+
+  label{
+    display:block;
+    font-family:'Courier New', monospace;
+    font-size:12px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--blue-line);
+    margin-bottom:6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select{
+    width:100%;
+    height:38px;
+    padding:0 10px;
+    border:1px solid var(--blue-line);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:14px;
+    border-radius:2px;
+  }
+
+  input:focus, select:focus{
+    outline:2px solid var(--accent);
+    outline-offset:1px;
+  }
+
+  fieldset{
+    border:1px dashed var(--blue-line);
+    padding:12px 14px 6px;
+    border-radius:2px;
+  }
+
+  fieldset legend{
+    font-family:'Courier New', monospace;
+    font-size:12px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--blue-line);
+    padding:0 6px;
+  }
+
+  .check-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    margin-bottom:8px;
+  }
+
+  .check-row input{ width:16px; height:16px; accent-color:var(--blue-deep); }
+
+  .submit-btn{
+    width:100%;
+    height:44px;
+    margin-top:22px;
+    border:none;
+    border-radius:2px;
+    background:var(--accent);
+    color:var(--blue-deep);
+    font-weight:bold;
+    font-size:14.5px;
+    letter-spacing:0.5px;
+    cursor:pointer;
+    transition:background 0.2s ease, transform 0.1s ease;
+  }
+
+  .submit-btn:hover{ background:#f0b862; }
+  .submit-btn:active{ transform:translateY(1px); }
+
+  @media(max-width:480px){
+    .sheet{ width:100%; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="sheet">
+
+    <div class="title-block">
+        <div class="eyebrow">Registration Form</div>
+        <h1>Circuitrix '26</h1>
+        <p>Inter-College Technical Symposium — Department of ECE, SKCET</p>
+    </div>
+
+    <form>
+        <div class="field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+        </div>
+
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="field">
+            <label for="phone">Contact Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter your 10-digit phone number" required>
+        </div>
+
+        <div class="field">
+            <label for="college">College / University</label>
+            <input type="text" id="college" name="college" placeholder="Enter your college name" required>
+        </div>
+
+        <div class="field">
+            <label for="department">Department</label>
+            <select id="department" name="department" required>
+                <option value="" disabled selected>Select department</option>
                 <option>Computer Science</option>
                 <option>Electronics and Communication</option>
                 <option>Electrical Engineering</option>
                 <option>Mechanical</option>
                 <option>Mechatronics</option>
-            </select><br><br>
-            <p class="credentials">Select events to participate:</p>
-            <input type="checkbox">Byte Craft(Codathon)<br>
-            <input type="checkbox">Innovatex (Paper Presentation)<br>
-            <input type="checkbox">Web Weaver (UI/UX)<br>
-            <input type="checkbox">Doodla (Art) 
-            <br><br><br>
-            <button type="submit" class="btn-submit">Confirm Registration</button>
-            
+            </select>
         </div>
-    </body>
+
+        <div class="field">
+            <fieldset>
+                <legend>Events</legend>
+                <div class="check-row">
+                    <input type="checkbox" id="ev1" name="events" value="Circuit Sprint">
+                    <label for="ev1" style="margin:0; text-transform:none; font-family:inherit; font-size:14px; color:var(--ink);">Circuit Sprint (Hardware Hack)</label>
+                </div>
+                <div class="check-row">
+                    <input type="checkbox" id="ev2" name="events" value="SignalStorm">
+                    <label for="ev2" style="margin:0; text-transform:none; font-family:inherit; font-size:14px; color:var(--ink);">SignalStorm (Paper Presentation)</label>
+                </div>
+                <div class="check-row">
+                    <input type="checkbox" id="ev3" name="events" value="PCB Quest">
+                    <label for="ev3" style="margin:0; text-transform:none; font-family:inherit; font-size:14px; color:var(--ink);">PCB Quest (Design Challenge)</label>
+                </div>
+                <div class="check-row">
+                    <input type="checkbox" id="ev4" name="events" value="RoboRace">
+                    <label for="ev4" style="margin:0; text-transform:none; font-family:inherit; font-size:14px; color:var(--ink);">RoboRace (Robotics)</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="submit" class="submit-btn">Confirm Registration</button>
+    </form>
+
+</div>
+
+</body>
 </html>
